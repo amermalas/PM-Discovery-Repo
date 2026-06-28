@@ -1,0 +1,4 @@
+interface:
+  display_name: "Public Safety Review"
+  short_description: "Check PM artifacts before public release"
+  default_prompt: "Use $public-safety-review to inspect this artifact or repo for public-release risks, required redactions, synthetic replacements, and go/no-go recommendation."

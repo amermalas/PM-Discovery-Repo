@@ -1,0 +1,4 @@
+interface:
+  display_name: "Opportunity Selection"
+  short_description: "Turn validated painpoints into selected opportunities"
+  default_prompt: "Use $opportunity-selection to group validated painpoints into opportunities, score them, separate AI from hardening work, and recommend a primary and follow-on opportunity."

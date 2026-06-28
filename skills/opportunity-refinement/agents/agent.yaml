@@ -1,0 +1,4 @@
+interface:
+  display_name: "Opportunity Refinement"
+  short_description: "Refine one selected opportunity into a product package"
+  default_prompt: "Use $opportunity-refinement to turn this selected opportunity into JTBD, MVP behaviors, guardrails, non-goals, open questions, and handoff notes."

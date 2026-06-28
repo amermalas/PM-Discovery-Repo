@@ -1,0 +1,4 @@
+interface:
+  display_name: "Evidence Normalizer"
+  short_description: "Turn messy feedback into structured evidence rows"
+  default_prompt: "Use $customer-evidence-normalizer to convert this feedback into atomic evidence rows with source references, product/workflow tags, painpoint candidates, and confidence notes."

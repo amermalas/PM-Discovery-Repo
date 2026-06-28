@@ -1,0 +1,4 @@
+interface:
+  display_name: "Product Taxonomy Builder"
+  short_description: "Build product areas, capabilities, workflows, and glossary"
+  default_prompt: "Use $product-taxonomy-builder to turn these product sources into a structured taxonomy with capabilities, workflows, personas, glossary terms, source references, and open questions."

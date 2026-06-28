@@ -1,0 +1,4 @@
+interface:
+  display_name: "Disposable Prototype Builder"
+  short_description: "Build neutral throwaway prototypes from PM plans"
+  default_prompt: "Use $disposable-prototype-builder to create a public-safe throwaway prototype from this prototype plan, using synthetic fixtures, clear states, verification notes, and production non-goals."

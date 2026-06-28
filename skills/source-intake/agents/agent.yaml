@@ -1,0 +1,4 @@
+interface:
+  display_name: "Source Intake"
+  short_description: "Turn raw PM inputs into governed source cards"
+  default_prompt: "Use $source-intake to classify this source, create a source card, define allowed uses, and recommend which PM discovery skill should process it next."

@@ -1,0 +1,5 @@
+interface:
+  display_name: "AI Assistant Flow Planner"
+  short_description: "Plan workflow-based AI assistant requirements"
+  default_prompt: "Use $ai-assistant-flow-planner to turn this AI assistant idea into workflow families, conversation paths, prompt chips, durable artifacts and gates, ownership layers, tool/data needs, evaluation scenarios, and optional flow-map guidance."
+

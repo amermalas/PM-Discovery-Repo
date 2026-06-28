@@ -1,0 +1,64 @@
+product_taxonomy:
+  product_areas:
+    - id:
+      name:
+      description:
+      source_ids: []
+      source_support: direct
+      confidence: medium
+      review_status: draft
+      open_questions: []
+      capabilities:
+        - id:
+          name:
+          description:
+          source_ids: []
+          source_support: direct
+          confidence: medium
+          review_status: draft
+          open_questions: []
+  workflows:
+    - id:
+      name:
+      user_role:
+      stages:
+        - name:
+          user_goal:
+          common_actions: []
+      source_ids: []
+      source_support: direct
+      confidence: medium
+      review_status: draft
+      open_questions: []
+  personas:
+    - id:
+      name:
+      goals: []
+      painpoints_to_watch: []
+      source_ids: []
+      source_support: direct
+      confidence: medium
+      review_status: draft
+      open_questions: []
+  lifecycle_stages:
+    - id:
+      name:
+      description:
+      source_ids: []
+      source_support: direct
+      confidence: medium
+      review_status: draft
+      open_questions: []
+  glossary:
+    - term:
+      definition:
+      aliases: []
+      source_ids: []
+      source_support: direct
+      confidence: medium
+      review_status: draft
+      open_questions: []
+  open_questions:
+    - question:
+      owner:
+      needed_by:

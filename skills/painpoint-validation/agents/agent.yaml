@@ -1,0 +1,4 @@
+interface:
+  display_name: "Painpoint Validation"
+  short_description: "Validate painpoints against structured evidence"
+  default_prompt: "Use $painpoint-validation to normalize these painpoint candidates, attach supporting evidence, score validation strength, and identify what survives scrutiny."

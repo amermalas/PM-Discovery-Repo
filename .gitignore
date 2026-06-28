@@ -1,0 +1,17 @@
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+.vscode/
+.idea/
+
+# Secrets / local env
+.env
+.env.*
+*.pem
+*.key
+
+# Logs / deps
+*.log
+node_modules/

@@ -1,0 +1,2 @@
+evidence_id,source_id,source_family,source_location,user_or_persona,product_area,workflow_stage,evidence_type,snippet_or_paraphrase,public_safe_paraphrase,source_quote_allowed,theme_candidate,painpoint_candidate,severity,evidence_strength,confidence,needs_review,notes
+EVID-001,SRC-001,interview,placeholder,Example persona,Example product area,Example workflow stage,quote,"Synthetic example goes here.","Synthetic paraphrase goes here.",yes,Example theme,Example painpoint,medium,medium,medium,no,"Use synthetic examples in public repos."

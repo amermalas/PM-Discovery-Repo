@@ -1,0 +1,4 @@
+interface:
+  display_name: "Prototype Planning"
+  short_description: "Define prototype question, states, fixtures, and non-goals"
+  default_prompt: "Use $prototype-planning to define the prototype question, target reviewer, workflow states, synthetic data plan, mocked behavior, and PROTOTYPE.md contract."
