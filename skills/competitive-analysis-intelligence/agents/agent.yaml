@@ -1,0 +1,4 @@
+interface:
+  display_name: "Competitive Analysis Intelligence"
+  short_description: "Evidence-grounded competitive analysis and scorecards"
+  default_prompt: "Use $competitive-analysis-intelligence to identify competitors from our own evidence, score our product against them on a capability rubric, and produce opportunities/threats findings for this program or feature."

@@ -7,6 +7,7 @@ Published. This repository passed a full public-safety review before its initial
 ## Review Record
 
 - **2026-06-28 — Full public-safety review of all repository contents.** Every `SKILL.md`, every `agents/agent.yaml`, both reference files, all templates, plus `README.md`, `validation-plan.md`, and this manifest were read in full. **Result: cleared for public release.** No customer data, real company or product names, real source/ticket IDs, secrets, personal data, or local file paths were found. All examples are synthetic (the repo uses a fictional `DemoDesk` product and `SRC-001`/`EVID-001`-style synthetic identifiers).
+- **2026-07-24 — Added four extended-workflow skills** (`competitive-analysis-intelligence`, `task-card-knowledge-builder`, `assistant-golden-evaluator`, `how-to-video-producer`), each rewritten from a private internal source into a generic, provider/vendor-neutral form. Every private company name, internal program name, internal file path, internal tool/platform name, and concrete script name was removed or replaced with a generic placeholder or a fill-in-your-own template file (`references/repo-map-template.md` in the two skills that need one). README, this manifest, and `validation-plan.md` were updated to match. **Result: cleared for public release.** No customer data, real company or product names, real source/ticket IDs, secrets, personal data, or local file paths were found in the new content.
 
 ## What's published
 

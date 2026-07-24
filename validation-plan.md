@@ -238,7 +238,79 @@ Pass criteria:
 - includes human review gates before approvals, exports, or mutations
 - marks missing tools, data, or UI as gaps instead of assuming they exist
 
-### 10. Public Safety Review
+### 10. Competitive Analysis Intelligence
+
+Input: a synthetic account-evidence corpus mentioning two fictional competitors (`RivalDesk`, `QueueWorks`) for the DemoDesk intake-review arena.
+
+Expected output:
+
+- competitor-to-arena landscape
+- a capability rubric with 1-5 anchors
+- DemoDesk's own scorecard, cited to synthetic source rows
+- Tier-1 competitor dossiers with confidence levels
+- opportunities and threats findings tied to specific evidence rows
+- a validation note stating confidence limitations
+
+Pass criteria:
+
+- never produces a single global rank across arenas
+- every score cites a source or is explicitly marked uncited/low-confidence
+- separates real competitors from shadow-tooling/adjacent-system mentions
+- keeps future-feature scoring in a clearly labelled separate delta view
+
+### 11. Task Card Knowledge Builder
+
+Input: three synthetic source rows (a support conversation excerpt, a release note, a UI observation) about the DemoDesk intake-review workflow.
+
+Expected output:
+
+- source disposition for each row
+- a shape decision (`standalone_card`, `parent_card`, `step_or_detail`, `gap_only`, or `rejected_not_task_card`) for each candidate
+- a verification-ladder classification for each candidate
+- a tool-readiness bucket where relevant
+- a promotion decision with rationale
+
+Pass criteria:
+
+- does not promote a candidate without a verification outcome
+- never marks a card execution-ready without an explicit approval gate
+- keeps assistant-internal wording out of user-facing card content
+
+### 12. Assistant Golden Evaluator
+
+Input: a synthetic 5-question golden set for a fictional "DemoDesk Intake Assistant," plus three captured (synthetic) assistant answers.
+
+Expected output:
+
+- normalized golden-set cases
+- per-case score across the scoring dimensions
+- defect classification by root cause
+- a regression report using the report template
+
+Pass criteria:
+
+- does not default every failure to a prompt-tuning fix
+- classifies at least one retrieval/source-scope defect distinctly from a prompt defect
+- report leads with health status and blocker count
+
+### 13. How-To Video Producer
+
+Input: one verified synthetic task card (`create a DemoDesk intake review`) and a request for a how-to video.
+
+Expected output:
+
+- a video script matching the card's steps
+- a quality-gate checklist applied to a (described, not real) recording
+- a sync-QA timing map when voiceover is requested
+- an output contract listing script, review notes, and QA status
+
+Pass criteria:
+
+- does not invent steps beyond the written card
+- flags any placeholder/recorder-tool naming as a quality-gate failure
+- keeps assistant-internal phrases out of narration
+
+### 14. Public Safety Review
 
 Input: the full public repo folder.
 
@@ -300,6 +372,21 @@ Pass criteria:
 - prompt chips are treated as user-facing affordances
 - durable artifacts and gates are named
 - missing data, tools, or UI are surfaced as gaps
+- public-safety review finds no private platform names, ticket IDs, or internal paths
+
+### Chain D: Knowledge To Assistant Regression
+
+Run:
+
+```text
+task-card-knowledge-builder -> how-to-video-producer -> assistant-golden-evaluator -> public-safety-review
+```
+
+Pass criteria:
+
+- the video script traces back to a verified (synthetic) task card, not invented steps
+- tool-readiness and execution-allowed status stay explicit through the chain
+- the golden-set evaluation classifies defects by root cause rather than defaulting to prompt tuning
 - public-safety review finds no private platform names, ticket IDs, or internal paths
 
 ## Scoring

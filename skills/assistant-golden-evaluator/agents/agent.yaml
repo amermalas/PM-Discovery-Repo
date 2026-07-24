@@ -1,0 +1,4 @@
+interface:
+  display_name: "Assistant Golden Evaluator"
+  short_description: "Evaluate assistants against golden Q/A sets"
+  default_prompt: "Use $assistant-golden-evaluator to test this assistant against a golden Q/A or scenario set, classify deviations, and recommend prompt, source, retrieval, tool, or runtime fixes."

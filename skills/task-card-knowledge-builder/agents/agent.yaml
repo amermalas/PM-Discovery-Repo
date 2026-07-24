@@ -1,0 +1,4 @@
+interface:
+  display_name: "Task Card Knowledge Builder"
+  short_description: "Turn product knowledge into verified, agent-safe task cards"
+  default_prompt: "Use $task-card-knowledge-builder to harvest sources, decide card shape, verify claims, promote to verified knowledge, and map tool-readiness for this task-card work."

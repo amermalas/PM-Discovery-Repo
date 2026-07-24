@@ -1,0 +1,4 @@
+interface:
+  display_name: "How-To Video Producer"
+  short_description: "Produce supplemental how-to videos from verified task cards"
+  default_prompt: "Use $how-to-video-producer to turn this verified task card or reviewed script into a scripted, recorded, QA'd how-to video with optional voiceover."
