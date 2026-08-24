@@ -27,8 +27,9 @@ The goal is structure, not recommendation. Recommendations come after validation
 4. Tag product area or workflow if a taxonomy exists.
 5. Extract painpoint candidates without overstating them.
 6. Capture useful short snippets only when safe.
-7. Mark confidence and ambiguity.
-8. Produce a normalized evidence table.
+7. Capture absence signals: what the target's own artifacts do not say, where you looked, and what you searched for.
+8. Mark confidence and ambiguity.
+9. Produce a normalized evidence table.
 
 ## Output Contract
 
@@ -50,6 +51,8 @@ Return evidence rows with:
 - sentiment or severity
 - evidence strength
 - confidence
+- evidence basis: `presence` or `absence`
+- for absence rows: what was searched, which artifacts, and what was expected but not found
 - needs review: yes or no
 - notes
 
@@ -59,3 +62,5 @@ Return evidence rows with:
 - Do not merge multiple issues into one evidence item unless clearly the same point.
 - Do not include personal data or real customer names in public examples.
 - Do not treat one strong quote as broad validation.
+- Do not let an absence row become load-bearing. Absence is admissible and often the most target-specific material available, but it is a **signal, not a finding**, and must carry that label into every downstream artifact. Documents and systems are silent for many reasons, most of them boring.
+- Do not record an absence without recording the search that established it. "It is not mentioned" is only evidence if you can say where you looked.

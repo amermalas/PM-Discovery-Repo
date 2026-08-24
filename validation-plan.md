@@ -310,7 +310,66 @@ Pass criteria:
 - flags any placeholder/recorder-tool naming as a quality-gate failure
 - keeps assistant-internal phrases out of narration
 
-### 14. Public Safety Review
+### 14. Generic Claim Falsification
+
+Input: a short synthetic analysis whose claims are deliberately mixed — some grounded in the fixture product, some true of any company.
+
+Expected output:
+
+- claim list, each as a standalone sentence
+- substitution targets used
+- grade per claim: specific, conditional, generic
+- disposition per claim
+- specificity ratio
+- whether the recommendation survives removal of the generic claims
+
+Pass criteria:
+
+- grades a well-written but category-level claim as generic
+- does not accept evidence volume as a defence
+- reports honestly when the recommendation collapses without the generic claims
+
+### 15. Analog Peer Evidence
+
+Input: two synthetic claims and a set of public-style peer material, including one unnamed benchmark.
+
+Expected output:
+
+- peer source rows with deployment context and publication tier
+- transfer assumption per claim, stated as a sentence
+- transfer grade per claim
+- absence signals, labelled as signals
+- search log
+
+Pass criteria:
+
+- refuses the unnamed benchmark as an analog_peer source
+- grades transfer per claim rather than once for the set
+- does not carry a weak transfer into a recommendation
+- rewrites first-person-plural or state-asserting language about the target
+
+### 16. Section Role Audit
+
+Input: a synthetic two-page brief with a clear apex and two sections that restate it.
+
+Expected output:
+
+- role per section
+- unique residue per restating section
+- disposition per section
+- mode violations
+- map-to-body discrepancies
+- attention-test result
+- words removed
+
+Pass criteria:
+
+- identifies the restating sections
+- extracts their unique residue before recommending a cut
+- does not cut the concessions or rejected-alternatives section for being short
+- adds no new claims
+
+### 17. Public Safety Review
 
 Input: the full public repo folder.
 
@@ -334,14 +393,31 @@ Pass criteria:
 Run:
 
 ```text
-source-intake -> product-taxonomy-builder -> customer-evidence-normalizer -> painpoint-validation -> opportunity-selection -> opportunity-refinement
+source-intake -> product-taxonomy-builder -> customer-evidence-normalizer -> painpoint-validation -> generic-claim-falsification -> opportunity-selection -> opportunity-refinement
 ```
 
 Pass criteria:
 
 - source lineage survives the chain
 - unsupported painpoints do not become opportunities
+- generic painpoints are stopped at the gate rather than becoming opportunities
 - final opportunity is narrow enough for review
+
+### Chain E: Outside-In Analysis
+
+Run:
+
+```text
+source-intake -> analog-peer-evidence -> painpoint-validation -> generic-claim-falsification -> opportunity-selection -> section-role-audit
+```
+
+Pass criteria:
+
+- peer sources are named, with deployment context and publication tier
+- transfer grades are per claim and survive to the final artifact
+- absence signals never become load-bearing
+- the final document contains no assertion about the target's current internal state
+- the finished brief passes the attention test at its stated budget
 
 ### Chain B: Opportunity To Prototype
 

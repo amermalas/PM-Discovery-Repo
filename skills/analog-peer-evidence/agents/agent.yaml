@@ -1,0 +1,4 @@
+interface:
+  display_name: "Analog Peer Evidence"
+  short_description: "Reason honestly from named peer deployments when internal access is unavailable"
+  default_prompt: "Use $analog-peer-evidence to find named peer deployments supporting these claims, searching reversals before wins, and grade the transfer assumption for each claim."

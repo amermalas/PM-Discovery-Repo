@@ -30,6 +30,7 @@ This skill should convert evidence-backed painpoints into opportunity options. I
    - follow-on candidate
    - not-now opportunities
 7. Explain the tradeoff.
+8. Write the below-the-line record: every option considered and not selected, with the reason it lost.
 
 ## Output Contract
 
@@ -52,7 +53,12 @@ Return:
   - defer
 - primary selected opportunity
 - follow-on candidate
-- why the secondary candidates were not selected now
+- below-the-line record, produced by default and not on request:
+  - option considered
+  - what it would have addressed
+  - why it was not selected: evidence, sequencing, ownership, cost, or scope
+  - what would change the answer
+- capabilities deliberately conceded rather than built
 - rationale
 - risks
 - open questions
@@ -63,3 +69,5 @@ Return:
 - Do not call something an AI opportunity just because AI can be inserted.
 - Do not skip PM judgment; surface tradeoffs for the PM to decide.
 - Do not write a full product brief here; hand off to `opportunity-refinement`.
+- Do not omit the below-the-line record. Senior reviewers reliably ask what was considered and rejected; reconstructing it afterwards is guesswork, capturing it during selection is free.
+- Do not populate the below-the-line record with strawmen. An option that was never plausible teaches the reader nothing and signals that the real alternatives went unexamined.

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Section Role Audit"
+  short_description: "Cut restatement from a finished persuasive document"
+  default_prompt: "Use $section-role-audit on this document: state what each section uniquely adds beyond the apex, compress or cut the ones that only restate, check stance and map consistency, and report what was removed."

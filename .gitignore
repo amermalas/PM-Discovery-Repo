@@ -15,3 +15,9 @@ desktop.ini
 # Logs / deps
 *.log
 node_modules/
+
+# Private research workspaces.
+# This repo is public and every example in it must stay synthetic.
+# Analysis of a real target organization belongs in a separate, non-public workspace.
+# See publication-manifest.md.
+research/

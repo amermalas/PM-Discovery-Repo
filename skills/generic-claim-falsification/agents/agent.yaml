@@ -1,0 +1,4 @@
+interface:
+  display_name: "Generic Claim Falsification"
+  short_description: "Test whether a diagnosis is about the target or about the category"
+  default_prompt: "Use $generic-claim-falsification to extract the load-bearing claims from this analysis, substitute unrelated organizations into each one, grade them specific/conditional/generic, and report what survives."

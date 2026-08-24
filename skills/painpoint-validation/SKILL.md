@@ -26,7 +26,8 @@ The useful question is not "what should we build?" It is "which problem claims a
 5. Identify product-area fit or ambiguity.
 6. Separate validated painpoints from weak signals.
 7. Flag contradictions and missing evidence.
-8. Produce a validation table and narrative summary.
+8. Run the substitution test from `generic-claim-falsification` on every validated painpoint before handing off.
+9. Produce a validation table and narrative summary.
 
 ## Output Contract
 
@@ -50,6 +51,7 @@ Return:
   - promising but under-evidenced
   - unclear
   - not supported
+- specificity grade from the substitution test: `specific`, `conditional`, or `generic`
 - open questions
 
 ## Hard Boundaries
@@ -58,3 +60,4 @@ Return:
 - Do not inflate confidence because the writing is compelling.
 - Do not treat AI-generated summaries as evidence unless they link back to source rows.
 - Do not hide conflicting evidence.
+- Do not hand a `generic` painpoint to `opportunity-selection`. A painpoint that stays true when the target organization is swapped for an unrelated one is a category description, however well evidenced, and committing to a direction on it is the expensive mistake this chain exists to prevent.

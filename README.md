@@ -6,7 +6,7 @@ It is intentionally generic. It helps PMs build their own product context, taxon
 
 ## What's inside
 
-- `skills/` — fourteen discovery skills (listed below), each with a `SKILL.md` and a vendor-neutral `agents/agent.yaml` interface descriptor.
+- `skills/` — seventeen discovery skills (listed below), each with a `SKILL.md` and a vendor-neutral `agents/agent.yaml` interface descriptor.
 - `templates/` — fill-in templates for source cards, taxonomy, evidence, painpoint validation, opportunity briefs, and prototype contracts.
 - `validation-plan.md` — how to test the skills against synthetic fixtures before you rely on them.
 - `publication-manifest.md` — the public-safety policy and the review record for this repo.
@@ -25,6 +25,12 @@ Core discovery-to-prototype chain:
 - `disposable-prototype-builder`
 - `ai-assistant-flow-planner`
 
+Rigor gates and finishing passes — run these on the output of the chain above:
+
+- `generic-claim-falsification` — substitute unrelated organizations into every load-bearing claim; anything that stays true is a category description, not a diagnosis. Blocking gate between painpoint validation and opportunity selection.
+- `analog-peer-evidence` — reason from named peer deployments when internal access is unavailable, with per-claim transfer grading and a search order that prefers published reversals over published wins.
+- `section-role-audit` — finishing pass on a persuasive document: cut sections that only restate the apex, check stance and map consistency, and test the document against a realistic attention budget.
+
 Extended workflows — competitive analysis, product knowledge, and assistant/video production:
 
 - `competitive-analysis-intelligence` — evidence-grounded competitor scorecards, dossiers, and opportunities/threats reports for a program or feature.
@@ -38,7 +44,7 @@ Safety:
 
 ## Choosing a skill
 
-If you're not sure where to start: run discovery first (`source-intake` through `opportunity-refinement`), then branch into whichever extended workflow matches the output you need — a prototype, an AI assistant plan, a competitive study, a verified knowledge base, an assistant regression test, or a how-to video. Each `SKILL.md` names the other skills it expects to run before or after it.
+If you're not sure where to start: run discovery first (`source-intake` through `opportunity-refinement`, with `generic-claim-falsification` as a gate before you commit to a direction), then branch into whichever extended workflow matches the output you need — a prototype, an AI assistant plan, a competitive study, a verified knowledge base, an assistant regression test, or a how-to video. Each `SKILL.md` names the other skills it expects to run before or after it.
 
 ## Evidence discipline
 
@@ -47,6 +53,13 @@ Every skill in this repo that makes a claim about customer pain, priority, or co
 - **First-hand evidence** (account reports, transcripts, survey rows, support records, verified task cards, product/code checks, public competitor docs) is proof.
 - **Governed lineage artifacts** (generated evidence tables, quote indices, source-lineage tables that point back to proof files) are usable but should stay traceable to the proof layer.
 - **Context-only artifacts** (prior generated narrative studies, strategy memos, old assistant answers without lineage) are useful for framing and prior assumptions, never for validation claims on their own.
+
+Two additions cover the case where you are analyzing an organization you cannot see inside:
+
+- **Named peer deployments** (`analog_peer`) are real evidence when the peer is named, the result is published and attributable, and the deployment context is stated. Anonymous benchmarks and vendor-aggregated averages are not; they are the material that makes an analysis read as generic. Grade the transfer assumption per claim, never once for the document.
+- **Absence** — what a target's own artifacts do not say — is admissible and is often the most target-specific material available, but it is a **signal, never a finding**. Record the search that established it, and never let it carry a recommendation.
+
+And one test that applies to the whole result: if you swap the target organization for an unrelated one and the analysis still reads as true, you have written a category description. Evidence volume does not fix this; only target-specific grounding does.
 
 Use precise language to keep these separate: "Evidence shows..." only when backed by proof or lineage; "The prior study framed..." when using a generated study as context; "We infer..." when the connection is logical but not directly stated by a customer; "Open question..." when nothing has validated the claim yet. Do not let an AI-generated artifact become the source of truth for itself.
 
