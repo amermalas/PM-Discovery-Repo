@@ -1,0 +1,4 @@
+interface:
+  display_name: "Technical Writing Task-Card Bridge"
+  short_description: "Bridge verified task cards into documentation maintenance"
+  default_prompt: "Use $technical-writing-taskcard-bridge to audit our docs against verified task cards, or draft a docs page from a verified task-card cluster."

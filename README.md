@@ -6,10 +6,22 @@ It is intentionally generic. It helps PMs build their own product context, taxon
 
 ## What's inside
 
-- `skills/` — seventeen discovery skills (listed below), each with a `SKILL.md` and a vendor-neutral `agents/agent.yaml` interface descriptor.
+- `skills/` — twenty-three discovery skills (listed below), each with a `SKILL.md` and a vendor-neutral `agents/agent.yaml` interface descriptor.
 - `templates/` — fill-in templates for source cards, taxonomy, evidence, painpoint validation, opportunity briefs, and prototype contracts.
 - `validation-plan.md` — how to test the skills against synthetic fixtures before you rely on them.
 - `publication-manifest.md` — the public-safety policy and the review record for this repo.
+
+## The 5-stage operating loop
+
+Five skills package a repeatable loop for using AI across the whole product management lifecycle, not just for one-off drafting — **SENSE → LISTEN → GROUND → PROTOTYPE → COMMIT**. Each stage names the specific skill(s) below it that do the detailed work; think of these five as the narrative spine and the rest of the skills as the machinery underneath it.
+
+- `pm-sense` — Stage 1: build or refresh a live market/competitor radar.
+- `pm-listen` — Stage 2: turn customer calls into a searchable, traceable evidence base.
+- `pm-ground` — Stage 3: ground a new idea in your product's actual current state before treating it as fact.
+- `pm-prototype` — Stage 4: build a disposable prototype, keep a decision log, and capture the Business Logic Companion (the rules a prototype can't show).
+- `pm-commit` — Stage 5: convert a validated prototype into requirements, an epic, and testable stories without losing traceability.
+
+Validated insight from COMMIT should feed back into SENSE, LISTEN, and GROUND — it's a loop, not a one-way pipeline.
 
 ## Skills
 
@@ -37,6 +49,7 @@ Extended workflows — competitive analysis, product knowledge, and assistant/vi
 - `task-card-knowledge-builder` — turn messy product knowledge into verified, agent-safe task cards with a source-to-verification-to-promotion lifecycle.
 - `assistant-golden-evaluator` — regression-test any assistant/chatbot against a golden Q/A or scenario set and route defects to the right owner/layer.
 - `how-to-video-producer` — turn a verified task card into a scripted, recorded, QA'd how-to video with optional voiceover.
+- `technical-writing-taskcard-bridge` — audit your documentation against verified task cards for drift, or draft a doc page from a verified task-card cluster.
 
 Safety:
 
@@ -44,7 +57,7 @@ Safety:
 
 ## Choosing a skill
 
-If you're not sure where to start: run discovery first (`source-intake` through `opportunity-refinement`, with `generic-claim-falsification` as a gate before you commit to a direction), then branch into whichever extended workflow matches the output you need — a prototype, an AI assistant plan, a competitive study, a verified knowledge base, an assistant regression test, or a how-to video. Each `SKILL.md` names the other skills it expects to run before or after it.
+If you're building the whole loop, start with the 5-stage operating loop above — `pm-sense` through `pm-commit` — and let each stage route you into the detailed skill it needs. If you just need one piece: run discovery first (`source-intake` through `opportunity-refinement`, with `generic-claim-falsification` as a gate before you commit to a direction), then branch into whichever extended workflow matches the output you need — a prototype, an AI assistant plan, a competitive study, a verified knowledge base, an assistant regression test, a how-to video, or a documentation audit. Each `SKILL.md` names the other skills it expects to run before or after it.
 
 ## Evidence discipline
 

@@ -1,0 +1,4 @@
+interface:
+  display_name: "PM Commit"
+  short_description: "Convert a validated prototype into delivery-ready work"
+  default_prompt: "Use $pm-commit to turn this prototype, decision log, and Business Logic Companion into a traceable epic and stories."

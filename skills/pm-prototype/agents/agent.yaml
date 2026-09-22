@@ -1,0 +1,4 @@
+interface:
+  display_name: "PM Prototype"
+  short_description: "Prototype a concept and capture its hidden logic"
+  default_prompt: "Use $pm-prototype to turn this grounded concept into a disposable prototype plan with a decision log and Business Logic Companion."

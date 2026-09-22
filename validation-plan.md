@@ -369,7 +369,103 @@ Pass criteria:
 - does not cut the concessions or rejected-alternatives section for being short
 - adds no new claims
 
-### 17. Public Safety Review
+### 18. PM Sense
+
+Input: a fictional product bucket (DemoDesk Intake) with two synthetic competitors (`RivalDesk`, `QueueWorks`) and three synthetic dated public-source snippets.
+
+Expected output:
+
+- a weekly signal digest limited to net-new items since a stated prior run
+- each item carrying a factual summary, source, source date, and confidence
+- an explicit "no meaningful change" case when no snippet is net-new
+
+Pass criteria:
+
+- never states a competitor claim without a source and date
+- separates observed fact from interpretation
+- checks for and extends a prior dossier rather than duplicating one
+
+### 19. PM Listen
+
+Input: three synthetic call excerpts (with account, date, speaker, role) about the DemoDesk intake-review workflow, including one contradictory data point.
+
+Expected output:
+
+- evidence rows tagged by product area, persona, workflow, observation type, and strength
+- an interpreted-need line kept visibly separate from the verbatim excerpt
+- the contradictory excerpt preserved, not smoothed away
+
+Pass criteria:
+
+- never treats a repeated account as multiple independent signals
+- routes new/unclassified source material to `source-intake` rather than tagging it directly
+- keeps every tag traceable to an account, date, and speaker
+
+### 20. PM Ground
+
+Input: a claim ("DemoDesk cannot export to PDF") plus one synthetic documentation page and one synthetic ticket that partially contradict it.
+
+Expected output:
+
+- a retrieval-based answer that inspects the page/ticket body, not just a title
+- confirmed facts, conflicts, and inference listed separately
+- an explicit "not found" case when no source addresses the claim
+
+Pass criteria:
+
+- never answers from unstated memory as though it were a current retrieval
+- surfaces the page/ticket conflict rather than silently picking one source
+- routes an existing-capability question to a task-card/taxonomy check before calling something a gap
+
+### 21. PM Prototype
+
+Input: a refined opportunity (from Opportunity Refinement) for the DemoDesk intake-review workflow.
+
+Expected output:
+
+- a prototype brief (user/job, starting state, happy path, critical states, non-goals, decision)
+- a decision log entry format
+- a Business Logic Companion with every row labeled Confirmed, PM decision, Inference, or Open question
+
+Pass criteria:
+
+- does not skip the Business Logic Companion when the prototype is described as delivery-track
+- never treats an inferred rule as a confirmed one
+- hands the actual interactive build off to `disposable-prototype-builder`/`prototype-planning` rather than reimplementing it
+
+### 22. PM Commit
+
+Input: a completed DemoDesk prototype brief, decision log, and Business Logic Companion from PM Prototype.
+
+Expected output:
+
+- an epic and a small set of independently valuable stories
+- each story with rationale, linked evidence, acceptance criteria, edge/error states, and open questions
+- explicit flags on anything inferred rather than confirmed
+
+Pass criteria:
+
+- does not invent an implementation detail not present in the prototype/decision log
+- separates product requirements from implementation suggestions
+- states the definition-of-ready checklist result before treating stories as filing-ready
+
+### 23. Technical Writing Task-Card Bridge
+
+Input: two synthetic documentation pages and three synthetic verified task cards for the DemoDesk intake-review workflow, with one intentional drift (a page describing a removed field).
+
+Expected output:
+
+- a drift audit with suggested review items, not declarative "this is wrong" statements
+- doc-only candidates classified into a disposition bucket
+- verified-card clusters with no doc equivalent flagged as a doc opportunity
+
+Pass criteria:
+
+- phrases every finding as a suggested check, never an assertion of error, unless the input explicitly supplies proof
+- routes actual card promotion/verification back to `task-card-knowledge-builder` rather than doing it inline
+- keeps reviewer/source notes separate from the user-facing draft body
+
+### 24. Public Safety Review
 
 Input: the full public repo folder.
 
@@ -463,6 +559,22 @@ Pass criteria:
 - the video script traces back to a verified (synthetic) task card, not invented steps
 - tool-readiness and execution-allowed status stay explicit through the chain
 - the golden-set evaluation classifies defects by root cause rather than defaulting to prompt tuning
+- public-safety review finds no private platform names, ticket IDs, or internal paths
+
+### Chain F: The Operating Loop
+
+Run:
+
+```text
+pm-sense -> pm-listen -> pm-ground -> opportunity-refinement -> pm-prototype -> pm-commit -> public-safety-review
+```
+
+Pass criteria:
+
+- the market signal (PM Sense) and the customer evidence (PM Listen) both stay traceable to a source and date
+- the grounding step (PM Ground) confirms or contradicts the concept against synthetic documentation/tickets before it proceeds, and distinguishes a genuine gap from an existing-but-undiscovered capability
+- the prototype's Business Logic Companion labels every row Confirmed, PM decision, Inference, or Open question
+- the final epic/stories trace back through the decision log to the original customer evidence and market signal, not to an intermediate assumption
 - public-safety review finds no private platform names, ticket IDs, or internal paths
 
 ## Scoring

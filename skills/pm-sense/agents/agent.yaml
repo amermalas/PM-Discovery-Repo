@@ -1,0 +1,4 @@
+interface:
+  display_name: "PM Sense"
+  short_description: "Build a live market and competitor radar"
+  default_prompt: "Use $pm-sense to build or refresh a sourced, dated market/competitor brief for this product bucket."

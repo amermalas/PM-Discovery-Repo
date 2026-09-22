@@ -1,0 +1,4 @@
+interface:
+  display_name: "PM Ground"
+  short_description: "Ground a claim in current product/doc/ticket state"
+  default_prompt: "Use $pm-ground to confirm what our product already does, has decided, or has in flight before treating this as fact."

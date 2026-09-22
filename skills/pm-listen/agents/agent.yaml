@@ -1,0 +1,4 @@
+interface:
+  display_name: "PM Listen"
+  short_description: "Turn customer calls into traceable evidence"
+  default_prompt: "Use $pm-listen to pull traceable, evidence-backed findings about this problem from our customer-call evidence."
