@@ -1,0 +1,4 @@
+interface:
+  display_name: "Launch Readiness Review"
+  short_description: "Run a go/no-go against explicit, evidenced criteria"
+  default_prompt: "Use $launch-readiness-review to put every launch criterion into met, waived, or blocking with evidence and owners, check the rollout and rollback plan, add AI-specific gates if relevant, and recommend go or no-go."

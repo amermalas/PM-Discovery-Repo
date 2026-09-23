@@ -1,0 +1,4 @@
+interface:
+  display_name: "Program Status Report"
+  short_description: "Write status for executives, partners, and the team"
+  default_prompt: "Use $program-status-report to turn this plan, risk register, and decision log into an executive update, a partner-org update, and a working-team update with an evidence-based status color."

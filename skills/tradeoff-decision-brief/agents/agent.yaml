@@ -1,0 +1,4 @@
+interface:
+  display_name: "Tradeoff Decision Brief"
+  short_description: "Frame what gives when the plan no longer fits"
+  default_prompt: "Use $tradeoff-decision-brief to frame this change around date, scope, resources, and quality, lay out two or three options with consequences, recommend one, and name the decider and decide-by date."

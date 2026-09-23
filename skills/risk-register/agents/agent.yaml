@@ -1,0 +1,4 @@
+interface:
+  display_name: "Risk Register"
+  short_description: "Identify, score, own, and track program risks"
+  default_prompt: "Use $risk-register to run a pre-mortem on this plan, score each risk by probability and impact, assign an owner, trigger, response, and resolve-by date, and flag overdue risks as issues."

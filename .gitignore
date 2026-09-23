@@ -21,3 +21,7 @@ node_modules/
 # Analysis of a real target organization belongs in a separate, non-public workspace.
 # See publication-manifest.md.
 research/
+
+# Python bytecode
+__pycache__/
+*.pyc

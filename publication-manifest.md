@@ -13,6 +13,8 @@ Published. This repository passed a full public-safety review before its initial
 
 - **2026-09-22 — Added the 5-stage operating-loop skills** (`pm-sense`, `pm-listen`, `pm-ground`, `pm-prototype`, `pm-commit`) and one extended-workflow skill (`technical-writing-taskcard-bridge`), each rewritten from a private internal source. Internal skill names were remapped to their already-public equivalents (for example, references to an internal source-intake/taxonomy/evidence-allocation/prototype stack were rewritten to point at this repo's `source-intake`, `product-taxonomy-builder`, `customer-evidence-normalizer`, and `disposable-prototype-builder`/`prototype-planning`). Every private company name, internal platform/tool name (an internal AI-agent-configuration platform, an internal documentation wiki, an internal deployment hostname), internal derived-artifact filename, and internal folder path was removed or replaced with a generic description. A sixth candidate skill, tightly coupled to a named internal AI-agent-configuration platform's specific UI (playground/inspector-style tooling), was evaluated and intentionally not ported — its generic value was too thin relative to the sanitization effort required. `README.md`, `validation-plan.md`, and this manifest were updated to match. **Result: cleared for public release.** No customer data, real company or product names, real source/ticket IDs, secrets, personal data, or local file paths were found in the new content.
 
+- **2026-09-23 — Added the 5-stage delivery loop and program-sense skills** (`tpm-frame`, `tpm-plan`, `tpm-align`, `tpm-run`, `tpm-land`) and nine supporting skills (`delivery-decomposition`, `risk-register`, `tradeoff-decision-brief`, `stakeholder-alignment`, `program-status-report`, `success-metric-tree`, `launch-readiness-review`, `program-recovery`, `program-retrospective`), eleven fill-in templates, four standard-library Python scripts under `scripts/`, and a synthetic program fixture under `examples/demodesk-program/`. The content is methods only, generalized from private interview-prep study notes and the author's own program-management practice. No course text, named instructor or candidate, employer, program, story, metric, or person from those notes was carried over; every example uses the fictional `DemoDesk` product with synthetic teams, dates, and `T-`/`R-`/`DEC-` identifiers. Two existing skills were brought in line with the validation plan's static checks (`pm-listen` gained an Outputs section; `technical-writing-taskcard-bridge` labels its boundaries), and `pm-commit` now hands off to `tpm-frame`. `README.md`, `validation-plan.md`, and this manifest were updated to match, and `scripts/validate_skills.py` now automates the static checks. **Result: cleared for public release.** No customer data, real company or product names, real source/ticket IDs, secrets, personal data, or local file paths were found in the new content.
+
 ## What's published
 
 The public repository contains only:
@@ -23,6 +25,8 @@ The public repository contains only:
 - `LICENSE`, `CONTRIBUTING.md`, `SECURITY.md`
 - `skills/`
 - `templates/`
+- `scripts/` (standard-library helpers that read your own CSVs; they make no network calls)
+- `examples/` (synthetic fixtures only)
 
 ## What must never be added to this public repo
 
@@ -34,6 +38,7 @@ The public repository contains only:
 - research workspaces derived from a real target organization, including any `research/` tree (gitignored for this reason)
 - named-peer evidence tables, transfer-assumption grades, or falsification results produced against a real organization
 - agent plans that include private platform names, real ticket IDs, local source paths, or customer-specific examples
+- program plans, dependency maps, risk registers, decision logs, or status reports from a real program, including as examples or test fixtures
 
 ## Contribution & re-publication rule
 

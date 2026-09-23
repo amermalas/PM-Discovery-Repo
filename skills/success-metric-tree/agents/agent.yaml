@@ -1,0 +1,4 @@
+interface:
+  display_name: "Success Metric Tree"
+  short_description: "Define an outcome metric, baseline, and guardrails before launch"
+  default_prompt: "Use $success-metric-tree to define one outcome metric with a baseline, build adoption, quality, system, and delivery branches, and pair every gameable metric with a counter-metric."

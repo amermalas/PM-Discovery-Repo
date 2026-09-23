@@ -1,0 +1,4 @@
+interface:
+  display_name: "TPM Plan"
+  short_description: "Decompose a program by team and find the critical path"
+  default_prompt: "Use $tpm-plan to turn this charter and epic into a delivery plan with team-owned workstreams, interface contracts, a dependency map, the critical path, demo-ending milestones, a staffing check, and a seeded risk register."

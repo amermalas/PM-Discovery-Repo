@@ -1,0 +1,4 @@
+interface:
+  display_name: "Program Recovery"
+  short_description: "Diagnose and re-baseline a program that is badly off plan"
+  default_prompt: "Use $program-recovery to measure this program's variance, diagnose the cause, re-baseline the remaining work with the teams, and take descope, re-phase, fund, or stop options to the sponsor."

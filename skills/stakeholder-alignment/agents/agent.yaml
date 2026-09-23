@@ -1,0 +1,4 @@
+interface:
+  display_name: "Stakeholder Alignment"
+  short_description: "Map stakeholders and earn commitment without authority"
+  default_prompt: "Use $stakeholder-alignment to map this program's stakeholders, prepare 1:1 questions, write each partner's ask in terms of their goals, and plan how to resolve open conflicts."

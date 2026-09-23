@@ -1,0 +1,4 @@
+interface:
+  display_name: "Program Retrospective"
+  short_description: "Measure against baseline and turn lessons into owned changes"
+  default_prompt: "Use $program-retrospective to compare results to the charter baseline, review the decision log, group lessons as process, people, and technical, assign owned actions, and route learnings back to discovery."

@@ -19,8 +19,9 @@ Run the `public-safety-review` skill over your change before you open a pull req
 1. Fork the repository.
 2. Create a branch for your change.
 3. Make the change. Keep each skill self-contained: clear `name`/`description` frontmatter, an explicit output contract, and explicit hard boundaries.
-4. Confirm your change adds no private or sensitive content (see above).
-5. Open a pull request describing what the change improves and why.
+4. Run `python scripts/validate_skills.py` and fix anything it reports.
+5. Confirm your change adds no private or sensitive content (see above).
+6. Open a pull request describing what the change improves and why.
 
 ## What good looks like
 

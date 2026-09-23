@@ -5,7 +5,7 @@ description: Use for Stage 5 (COMMIT) of the 5-stage AI-enabled product manageme
 
 # PM Commit — Stage 5: Convert the validated concept into delivery-ready work
 
-Part of a 5-stage operating loop (SENSE -> LISTEN -> GROUND -> PROTOTYPE -> COMMIT) for using AI across the product management lifecycle, not just for one-off drafting. Translates prototype decisions and source evidence into requirements and delivery-ready work without losing rationale or traceability. This is the final stage of the loop; validated insights and decisions should also feed back into the market brief (PM Sense), the customer evidence base (PM Listen), and product documentation (PM Ground).
+Part of a 5-stage operating loop (SENSE -> LISTEN -> GROUND -> PROTOTYPE -> COMMIT) for using AI across the product management lifecycle, not just for one-off drafting. Translates prototype decisions and source evidence into requirements and delivery-ready work without losing rationale or traceability. This is the final stage of the discovery loop. Once the epic is committed, hand it to `tpm-frame` to start the delivery loop (FRAME -> PLAN -> ALIGN -> RUN -> LAND), which takes the work to launch and measures the result. Validated insights and decisions should also feed back into the market brief (PM Sense), the customer evidence base (PM Listen), and product documentation (PM Ground).
 
 ## Objective
 
@@ -66,6 +66,7 @@ PM, design, engineering, and QA can review the same traceable definition — not
 ## Related repo resources
 
 - `opportunity-refinement`, `ai-assistant-flow-planner`, `task-card-knowledge-builder`.
+- Next: `tpm-frame`, Stage 1 of the delivery loop.
 
 ## Guardrails
 

@@ -1,0 +1,2 @@
+risk_id,description,category,probability,impact,owner,trigger,response,mitigation,resolve_by,status,effect_if_materializes,shared_with,notes
+R-001,Example risk,dependency,3,4,Example owner (a person),Example early-warning signal,reduce,Example mitigation and who is doing it,YYYY-MM-DD,open,Example effect on date/scope/cost,Example partner,"probability and impact are 1-5. category is scope, schedule, cost, quality, compliance, security, dependency, or staffing. response is avoid, reduce, transfer, or accept. status is open, mitigating, closed, or issue."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "TPM Land"
+  short_description: "Ship safely with rollback and prove the result"
+  default_prompt: "Use $tpm-land to run a go/no-go review, plan a staged rollout with a rollback owner, and measure the launch against the charter's success metric and baseline."

@@ -19,7 +19,7 @@ This skill does not replace `task-card-knowledge-builder`. Use that skill first 
    - Read `references/doc-draft-workflow.md`.
 3. Read `references/output-templates.md` when producing a shareable report or draft page.
 
-## Evidence Rules
+## Evidence Rules And Hard Boundaries
 
 - Treat verified task cards and their verification artifacts as the stronger internal knowledge layer for how-to behavior.
 - Treat existing docs, internal Q&A, browser observations, and generated summaries as evidence to compare or ingest, not as final task-card truth.

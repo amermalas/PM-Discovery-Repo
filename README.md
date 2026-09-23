@@ -4,10 +4,14 @@ A public, vendor-neutral skill package for AI-assisted product discovery. This i
 
 It is intentionally generic. It helps PMs build their own product context, taxonomy, evidence model, opportunity workflow, AI-assistant planning workflow, competitive-analysis workflow, task-card knowledge base, assistant-evaluation workflow, how-to video pipeline, and prototype system — without exposing private company knowledge. Every example in this repo is synthetic.
 
+It also covers what happens after discovery. A delivery loop for TPMs and PMs who own execution takes a committed bet from charter to launch: framing the program, decomposing it across teams, finding the critical path, earning stakeholder commitment, running status and risk, handling tradeoffs, and proving the result against a baseline.
+
 ## What's inside
 
-- `skills/` — twenty-three discovery skills (listed below), each with a `SKILL.md` and a vendor-neutral `agents/agent.yaml` interface descriptor.
-- `templates/` — fill-in templates for source cards, taxonomy, evidence, painpoint validation, opportunity briefs, and prototype contracts.
+- `skills/` — thirty-seven skills (listed below): twenty-three for discovery and fourteen for delivery, each with a `SKILL.md` and a vendor-neutral `agents/agent.yaml` interface descriptor.
+- `templates/` — fill-in templates for source cards, taxonomy, evidence, painpoint validation, opportunity briefs, and prototype contracts, plus program charters, dependency maps, risk registers, stakeholder maps, communication plans, decision logs, status reports, tradeoff briefs, metric trees, launch-readiness checklists, and retrospectives.
+- `scripts/` — standard-library Python helpers: critical-path analysis, risk-register scoring, a status-report drafter, and a static validator for the skills themselves.
+- `examples/` — a synthetic DemoDesk program to run the scripts against.
 - `validation-plan.md` — how to test the skills against synthetic fixtures before you rely on them.
 - `publication-manifest.md` — the public-safety policy and the review record for this repo.
 
@@ -22,6 +26,18 @@ Five skills package a repeatable loop for using AI across the whole product mana
 - `pm-commit` — Stage 5: convert a validated prototype into requirements, an epic, and testable stories without losing traceability.
 
 Validated insight from COMMIT should feed back into SENSE, LISTEN, and GROUND — it's a loop, not a one-way pipeline.
+
+## The 5-stage delivery loop
+
+Discovery ends with a committed epic. Delivery starts there. Five skills take that bet to launch and back — **FRAME → PLAN → ALIGN → RUN → LAND**. They carry program sense: the judgment about goals, dependencies, stakeholders, risk, and tradeoffs that gets a feature shipped without adding needless process.
+
+- `tpm-frame` — Stage 1: agree the goal, success metric and baseline, program type, fixed variable, execution model, and decider; write the charter.
+- `tpm-plan` — Stage 2: decompose the work by team, name the interface contracts between teams, find the critical path, set demo-ending milestones, check staffing, and seed the risk register.
+- `tpm-align` — Stage 3: map stakeholders, earn partner-team commitments tied to their own goals, set the decision forum, and write the communication plan.
+- `tpm-run` — Stage 4: run status and risk review, cost out change requests, bring tradeoffs to the decider with options, and keep the decision log.
+- `tpm-land` — Stage 5: run go/no-go, stage the rollout with a rollback owner, measure against the baseline, and feed lessons back into discovery.
+
+LAND feeds back into SENSE, LISTEN, and GROUND, so the two loops form one cycle from signal to shipped outcome.
 
 ## Skills
 
@@ -51,13 +67,25 @@ Extended workflows — competitive analysis, product knowledge, and assistant/vi
 - `how-to-video-producer` — turn a verified task card into a scripted, recorded, QA'd how-to video with optional voiceover.
 - `technical-writing-taskcard-bridge` — audit your documentation against verified task cards for drift, or draft a doc page from a verified task-card cluster.
 
+Delivery loop machinery — the detailed work under the five delivery stages:
+
+- `delivery-decomposition` — turn a design into owning teams, interface contracts, a dependency map, the critical path, and phasing.
+- `risk-register` — pre-mortem, probability × impact scoring, owners and resolve-by dates, overdue risks converted to issues, and calculated-risk decision records.
+- `tradeoff-decision-brief` — when the plan no longer fits, frame what gives across date, scope, resources, and quality, with options and a decider.
+- `stakeholder-alignment` — stakeholder map, 1:1 discovery, partner asks tied to their goals, and conflict resolution.
+- `program-status-report` — executive, partner-org, and working-team updates with an evidence-based status color.
+- `success-metric-tree` — one outcome metric with a baseline, supporting branches, and counter-metrics for anything gameable.
+- `launch-readiness-review` — go/no-go with every criterion met, waived by an owner, or blocking, plus AI-specific gates.
+- `program-recovery` — diagnose and re-baseline a program that is badly off plan, including the option to stop.
+- `program-retrospective` — measure against baseline, review decisions, and route lessons to owners and back into discovery.
+
 Safety:
 
 - `public-safety-review`
 
 ## Choosing a skill
 
-If you're building the whole loop, start with the 5-stage operating loop above — `pm-sense` through `pm-commit` — and let each stage route you into the detailed skill it needs. If you just need one piece: run discovery first (`source-intake` through `opportunity-refinement`, with `generic-claim-falsification` as a gate before you commit to a direction), then branch into whichever extended workflow matches the output you need — a prototype, an AI assistant plan, a competitive study, a verified knowledge base, an assistant regression test, a how-to video, or a documentation audit. Each `SKILL.md` names the other skills it expects to run before or after it.
+If you're building the whole loop, start with the 5-stage operating loop above — `pm-sense` through `pm-commit` — and let each stage route you into the detailed skill it needs. If you just need one piece: run discovery first (`source-intake` through `opportunity-refinement`, with `generic-claim-falsification` as a gate before you commit to a direction), then branch into whichever extended workflow matches the output you need — a prototype, an AI assistant plan, a competitive study, a verified knowledge base, an assistant regression test, a how-to video, or a documentation audit. Once a bet is committed, move to the delivery loop — `tpm-frame` through `tpm-land`. If you only need one delivery piece, reach for it directly: `risk-register` for a risk review, `tradeoff-decision-brief` when a plan breaks, `program-recovery` for a troubled program, `launch-readiness-review` before a ship decision. Each `SKILL.md` names the other skills it expects to run before or after it.
 
 ## Evidence discipline
 
@@ -79,6 +107,15 @@ Use precise language to keep these separate: "Evidence shows..." only when backe
 ## Use it with any model
 
 Each skill ships a vendor-neutral `agents/agent.yaml` describing its interface. Wire the skills into whichever agent or model you use; nothing here is tied to a specific AI vendor.
+
+The scripts in `scripts/` need only Python 3.8+ and the standard library. They produce drafts from your CSVs; the skills tell the agent (and you) how to judge them.
+
+```text
+python scripts/critical_path.py examples/demodesk-program/dependency-map.csv
+python scripts/risk_register.py examples/demodesk-program/risk-register.csv --today 2026-03-16
+python scripts/status_report.py --plan examples/demodesk-program/dependency-map.csv --risks examples/demodesk-program/risk-register.csv --today 2026-03-16
+python scripts/validate_skills.py
+```
 
 ## Keep it public-safe
 

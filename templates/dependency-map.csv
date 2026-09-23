@@ -1,0 +1,2 @@
+task_id,task_name,owner_team,duration_days,depends_on,estimate_source,is_milestone,status,planned_finish,forecast_finish,notes
+T-001,Example task,Example team,5,,team-provided,no,not_started,YYYY-MM-DD,YYYY-MM-DD,"depends_on takes task ids separated by semicolons. status is not_started, in_progress, blocked, or done. estimate_source is team-provided or inferred."

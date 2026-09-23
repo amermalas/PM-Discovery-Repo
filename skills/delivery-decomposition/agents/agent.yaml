@@ -1,0 +1,4 @@
+interface:
+  display_name: "Delivery Decomposition"
+  short_description: "Translate a design into teams, contracts, and a critical path"
+  default_prompt: "Use $delivery-decomposition to map these components to owning teams, name the interface contracts between teams, build a dependency map, compute the critical path, and propose phasing."

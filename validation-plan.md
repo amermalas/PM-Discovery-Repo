@@ -47,6 +47,7 @@ Run these checks before any workflow simulation:
 4. Each skill has an explicit output contract.
 5. Hard boundaries are explicit.
 6. The repo contains no real customer names, emails, domains, secrets, source IDs, private URLs, local absolute paths, or proprietary UI assets.
+7. `python scripts/validate_skills.py` passes (it automates checks 1-5 and part of 6).
 
 ## Single-Skill Smoke Tests
 
@@ -482,6 +483,214 @@ Pass criteria:
 - flags any real customer data, local absolute path, email, domain, private URL, source ID, private ticket ID, or proprietary asset
 - recommends no-go when sensitive material remains
 
+## Delivery Loop Smoke Tests
+
+Use the synthetic program in `examples/demodesk-program/` as the fixture: the DemoDesk Intake Assistant, answer-only mode first and acting mode second, with quality fixed in the charter.
+
+### 25. TPM Frame
+
+Input: a synthetic committed epic and decision log for the DemoDesk Intake Assistant, with no baseline measured and no named decider.
+
+Expected output:
+
+- a draft charter with problem, goal, metric, program type, fixed variable, execution model, scope in and out
+- the missing baseline and missing decider flagged as blocking open questions
+- long-lead reviews (security, privacy, legal) listed to start this week
+
+Pass criteria:
+
+- does not invent a baseline, sponsor, date, or budget
+- names which of date, scope, resources, quality is fixed and what flexes first
+- does not start detailed planning while the goal, metric, fixed variable, or decider is missing
+
+### 26. TPM Plan
+
+Input: the charter plus a synthetic component list for the assistant.
+
+Expected output:
+
+- workstreams with owning teams and interface contracts between them
+- dependency rows with estimate sources
+- critical path, milestones ending in demos, staffing check, seeded risk register
+
+Pass criteria:
+
+- decomposes by owning team, not only by component
+- names the critical path explicitly
+- marks inferred estimates as inferred
+- includes non-engineering roles (docs, support, analytics) in the staffing check
+
+### 27. TPM Align
+
+Input: the plan plus a synthetic list of six teams, one of which has not committed to its critical-path task.
+
+Expected output:
+
+- stakeholder map grouped as sponsors, partners, performers, beneficiaries, with decides or informed
+- partner asks written as dates, deliverables, and contracts tied to each team's goals
+- three-stream communication plan
+- the uncommitted team logged as a risk
+
+Pass criteria:
+
+- labels inferred stakeholder goals as inference
+- keeps informed-only stakeholders out of the decision forum
+- does not treat the program date as firm while a critical-path team is uncommitted
+
+### 28. TPM Run
+
+Input: the example dependency map and risk register, `--today 2026-03-16`, plus a synthetic executive request to add a new report to the first release.
+
+Expected output:
+
+- weekly status with a color, business impact, options, and decisions needed
+- `R-01` converted to an issue
+- the new request priced as a cost of yes with a cheaper alternative
+
+Pass criteria:
+
+- does not mark the program green
+- does not say yes or no to the new request without the decider
+- records decisions in the decision log format
+
+### 29. Delivery Decomposition
+
+Input: a synthetic design for the assistant: retrieval, orchestrator, chat surface, policy layer, action tools.
+
+Expected output: ownership table, interface contracts, decision dependencies, dependency rows, critical path, phasing.
+
+Pass criteria:
+
+- treats the policy-threshold agreement as a decision dependency with an owner and decide-by date
+- proposes an answer-only walking skeleton before the acting phase
+- flags any component with no owner
+
+### 30. Risk Register
+
+Input: `examples/demodesk-program/risk-register.csv` and `--today 2026-03-16`.
+
+Expected output: ranked risks, `R-01` flagged overdue, `R-05` listed as accepted with its expiry.
+
+Pass criteria:
+
+- every risk has a named person as owner
+- the accepted risk has a decider, controls, and an expiry
+- does not score risks to make status look green
+
+### 31. Tradeoff Decision Brief
+
+Input: `T-07` blocked, quality fixed, date requested to hold.
+
+Expected output: the gap quantified, leverage checked, two or three options with consequences, a recommendation, a decider, and a decide-by date.
+
+Pass criteria:
+
+- never offers "work harder" as an option
+- does not flex quality without the decider
+- presents more than one option
+
+### 32. Stakeholder Alignment
+
+Input: a synthetic conflict: support operations wants strict action limits, sales wants broad automation.
+
+Expected output: both positions, the shared goal underneath, a proposed resolution, and an escalation path.
+
+Pass criteria:
+
+- states each side's goal as stated or inferred
+- proposes a system fix if the conflict is recurring
+- does not go around a stakeholder before talking to them
+
+### 33. Program Status Report
+
+Input: the output of `scripts/status_report.py` on the example fixture.
+
+Expected output: executive, partner-org, and working-team updates.
+
+Pass criteria:
+
+- the executive update leads with color and business impact, and offers options
+- the color agrees with the risk register
+- no customer names or individual performance details
+
+### 34. Success Metric Tree
+
+Input: the assistant's goal: operations managers spend less time triaging intake.
+
+Expected output: one outcome metric with a baseline plan, four branches, counter-metric pairs.
+
+Pass criteria:
+
+- pairs deflection or throughput with a counter-metric
+- does not set a target without a baseline, or labels it provisional
+- does not use output measures as outcome metrics
+
+### 35. Launch Readiness Review
+
+Input: synthetic readiness status for answer-only mode with one missing rollback test and golden-set results just above threshold.
+
+Expected output: criteria table, rollout plan, AI-specific checks, recommendation.
+
+Pass criteria:
+
+- the missing rollback test is blocking unless explicitly waived by the decider
+- AI-specific checks include action tiering, idempotency, and budgets
+- does not treat a passing golden set as proof of production behavior
+
+### 36. Program Recovery
+
+Input: a synthetic program at 30 percent of scope with 70 percent of budget spent and a long change history.
+
+Expected output: variance summary, diagnosis by cause, options including stop, reset controls, early win.
+
+Pass criteria:
+
+- does not add people as the first move
+- re-baselines with team estimates
+- keeps stopping the program as a legitimate option
+
+### 37. Program Retrospective
+
+Input: synthetic post-launch metrics against the charter baseline and the example decision log.
+
+Expected output: metrics table, decisions reviewed, lessons by process, people, technical, owned actions, routed learnings.
+
+Pass criteria:
+
+- does not move the target after seeing the result
+- every lesson has an owner and a destination
+- routes at least one learning back to `pm-listen`, `pm-ground`, or `pm-sense`
+
+### 38. TPM Land
+
+Input: the answer-only launch-readiness output and synthetic post-launch metrics.
+
+Expected output: go/no-go decision with decider, staged rollout with rollback owner, results against baseline, expand/iterate/stop recommendation.
+
+Pass criteria:
+
+- no launch without a way to turn it off
+- compares against the charter baseline, not a number chosen after the fact
+
+## Script Tests
+
+Run from the repo root:
+
+```text
+python scripts/validate_skills.py
+python scripts/critical_path.py examples/demodesk-program/dependency-map.csv
+python scripts/risk_register.py examples/demodesk-program/risk-register.csv --today 2026-03-16
+python scripts/status_report.py --plan examples/demodesk-program/dependency-map.csv --risks examples/demodesk-program/risk-register.csv --today 2026-03-16
+```
+
+Pass criteria:
+
+- the validator reports all static checks passed
+- the critical path is `T-01 -> T-07 -> T-08 -> T-12`, 52 days, with `T-07` flagged as an inferred estimate
+- `R-01` is flagged overdue and `R-05` is listed as accepted
+- the status draft suggests red and names `T-07` as blocked on the critical path
+- a dependency cycle, an unknown dependency, or a non-numeric duration produces a clear error and a non-zero exit
+
 ## Chain Tests
 
 ### Chain A: Discovery To Opportunity
@@ -576,6 +785,36 @@ Pass criteria:
 - the prototype's Business Logic Companion labels every row Confirmed, PM decision, Inference, or Open question
 - the final epic/stories trace back through the decision log to the original customer evidence and market signal, not to an intermediate assumption
 - public-safety review finds no private platform names, ticket IDs, or internal paths
+
+### Chain G: The Delivery Loop
+
+Run:
+
+```text
+tpm-frame -> tpm-plan -> tpm-align -> tpm-run -> tpm-land -> public-safety-review
+```
+
+Pass criteria:
+
+- the charter's success metric and baseline are the ones measured in LAND
+- the fixed variable in the charter is respected in every tradeoff, or changed only by the decider with a decision log entry
+- every critical-path team has a written commitment before RUN starts
+- every material change in RUN has a decision log entry
+- LAND routes at least one learning back into the discovery loop
+
+### Chain H: Discovery To Delivery
+
+Run:
+
+```text
+pm-commit -> tpm-frame -> delivery-decomposition -> risk-register -> launch-readiness-review -> program-retrospective
+```
+
+Pass criteria:
+
+- the charter's problem statement traces back to the discovery evidence and decision log, not to a new assumption
+- the retrospective's routed learnings reach `pm-listen`, `pm-ground`, or `pm-sense`
+- public-safety review finds no real team names, people, dates tied to real work, or internal paths
 
 ## Scoring
 

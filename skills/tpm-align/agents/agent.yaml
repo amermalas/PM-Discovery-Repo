@@ -1,0 +1,4 @@
+interface:
+  display_name: "TPM Align"
+  short_description: "Earn stakeholder commitment and set up communication"
+  default_prompt: "Use $tpm-align to map stakeholders for this program, draft partner-team asks tied to their goals, set the decision forum, and write a three-stream communication plan."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "TPM Run"
+  short_description: "Operate the program and turn surprises into decisions"
+  default_prompt: "Use $tpm-run to produce this week's program status, re-score the risk register, convert overdue risks to issues, cost out new change requests, and list the decisions needed this week."

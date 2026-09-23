@@ -40,6 +40,13 @@ Make customer evidence retrievable, traceable, and clearly separated from PM int
 | Strength / confidence | Avoid false precision | Repeated / isolated / ambiguous |
 | Related idea / ticket / doc | Connect discovery to delivery | Link to concept or issue |
 
+## Outputs
+
+- Evidence rows using the fields above, each traceable to an account, date, and speaker.
+- The interpreted need kept visibly separate from the verbatim excerpt.
+- Contradictory or neutral evidence preserved alongside the supporting evidence.
+- Unanswered questions, and new or unclassified sources routed to `source-intake`.
+
 ## Copy-ready prompt
 
 > Using only the connected [product bucket] call database, identify the strongest evidence about [problem]. Group by user workflow, cite each supporting call, include contradictory or neutral evidence, and separate direct customer statements from your interpretation. Conclude with implications and unanswered questions — not final requirements.

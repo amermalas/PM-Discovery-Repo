@@ -1,0 +1,4 @@
+interface:
+  display_name: "TPM Frame"
+  short_description: "Turn a committed bet into a chartered program"
+  default_prompt: "Use $tpm-frame to turn this committed epic and decision log into a program charter with a sponsor, success metric and baseline, program type, fixed variable, execution model, and decider."

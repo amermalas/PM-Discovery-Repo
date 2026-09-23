@@ -1,0 +1,13 @@
+task_id,task_name,owner_team,duration_days,depends_on,estimate_source,is_milestone,status,planned_finish,forecast_finish,notes
+T-01,Charter signed and outcome baseline instrumented,Program,5,,team-provided,yes,done,2026-02-06,2026-02-06,Synthetic.
+T-02,Intake event schema contract published,Backend,5,T-01,team-provided,no,done,2026-02-13,2026-02-13,Interface contract consumed by Data/ML and Frontend.
+T-03,Retrieval pipeline over help content,Data/ML,15,T-02,team-provided,no,in_progress,2026-03-06,2026-03-13,Long intake threads need an input cap and a latency budget.
+T-04,Golden set and evaluation harness,Data/ML,10,T-01,team-provided,no,in_progress,2026-02-27,2026-03-20,Synthetic cases only.
+T-05,Chat surface with escalation handoff,Frontend,12,T-02,team-provided,no,done,2026-03-03,2026-03-03,Built against a stub of the schema contract.
+T-06,Answer-only walking skeleton end to end,Backend,5,T-03;T-05,team-provided,yes,not_started,2026-03-13,2026-03-20,Retires the retrieval-quality unknown before the acting phase.
+T-07,Auto-action policy thresholds agreed,Security & Compliance,30,T-01,inferred,no,blocked,2026-03-20,2026-04-03,A negotiation between legal and support operations. Not engineering work.
+T-08,Policy layer and idempotent action tools,Backend,12,T-06;T-07,team-provided,no,not_started,2026-04-07,2026-04-21,Thresholds live in configuration. Not in the prompt.
+T-09,Support runbook and training,Support Ops,5,T-06,team-provided,no,not_started,2026-03-20,2026-03-27,
+T-10,Help docs and release notes,Docs,4,T-06,team-provided,no,not_started,2026-03-19,2026-03-26,
+T-11,Launch readiness review for answer-only mode,Program,2,T-04;T-09;T-10,team-provided,yes,not_started,2026-03-24,2026-03-31,
+T-12,Acting mode behind a flag for an internal cohort,Backend,5,T-08;T-11,team-provided,yes,not_started,2026-04-14,2026-04-28,
