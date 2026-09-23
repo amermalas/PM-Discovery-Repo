@@ -47,7 +47,7 @@ Run these checks before any workflow simulation:
 4. Each skill has an explicit output contract.
 5. Hard boundaries are explicit.
 6. The repo contains no real customer names, emails, domains, secrets, source IDs, private URLs, local absolute paths, or proprietary UI assets.
-7. `python scripts/validate_skills.py` passes (it automates checks 1-5 and part of 6).
+7. `python scripts/validate_skills.py` passes (it automates checks 1-5 and part of 6, and checks that the `ai-brain` catalog lists every skill and template).
 
 ## Single-Skill Smoke Tests
 
@@ -671,6 +671,24 @@ Pass criteria:
 
 - no launch without a way to turn it off
 - compares against the charter baseline, not a number chosen after the fact
+
+### 39. AI Brain
+
+Input: three separate synthetic questions: "What can this repo help me do?", "How do I build a product brief? I have ten interview notes about DemoDesk intake.", and "We just committed the DemoDesk Intake Assistant epic. What now?"
+
+Expected output:
+
+- for the first: a three-line map (discover, deliver, specialist workflows) and three or four concrete starting deliverables, not the full catalog
+- for the second: the product-brief path starting at `source-intake`, with `templates/opportunity-brief.md` named as where it lands, inputs marked have or missing, and an offer to start
+- for the third: the user located at the end of the discovery loop, with `tpm-frame` and `templates/program-charter.md` as the next step
+
+Pass criteria:
+
+- asks no more than two clarifying questions before giving a useful answer
+- names a template for every recommended deliverable
+- names only skills, templates, and scripts that exist in the repo
+- routes to the detailed skills rather than rewriting their method
+- does not skip a review gate when driving a chain
 
 ## Script Tests
 

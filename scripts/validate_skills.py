@@ -9,8 +9,10 @@ Checks, per skill folder under skills/:
   5. hard boundaries exist (a heading containing "Boundar" or "Guardrail")
   6. agents/agent.yaml exists with display_name, short_description, default_prompt
 
-And across the whole repo (text files only):
-  7. no email addresses, absolute local paths, or private-looking URLs
+And across the whole repo:
+  7. the ai-brain catalog lists every skill and every template, and the
+     ai-brain catalog and recipes name no skill that does not exist
+  8. no email addresses, absolute local paths, or private-looking URLs (text files)
 
 Exits non-zero if any check fails. Standard library only. Usage:
     python scripts/validate_skills.py
@@ -81,6 +83,40 @@ def check_skill(folder):
     return problems
 
 
+def check_brain_coverage(skill_names):
+    """The ai-brain catalog must list every skill and template, and its
+    catalog and recipes must not name skills that do not exist."""
+    refs = os.path.join(ROOT, "skills", "ai-brain", "references")
+    catalog_path = os.path.join(refs, "skill-catalog.md")
+    recipes_path = os.path.join(refs, "deliverable-recipes.md")
+    if not os.path.isfile(catalog_path):
+        return ["ai-brain: missing references/skill-catalog.md"]
+    with open(catalog_path, encoding="utf-8") as f:
+        catalog = f.read()
+    problems = []
+    # A skill counts as listed only if it has its own row (first column).
+    listed = set(re.findall(r"^\| `([a-z0-9-]+)` \|", catalog, re.M))
+    for name in skill_names:
+        if name not in listed:
+            problems.append(f"ai-brain catalog has no row for skill `{name}`")
+    templates_dir = os.path.join(ROOT, "templates")
+    for fn in sorted(os.listdir(templates_dir)):
+        if f"`{fn}`" not in catalog:
+            problems.append(f"ai-brain catalog does not list template `{fn}`")
+    texts = [catalog]
+    if os.path.isfile(recipes_path):
+        with open(recipes_path, encoding="utf-8") as f:
+            texts.append(f.read())
+    known = set(skill_names)
+    for text in texts:
+        # Backticked hyphenated names in the first column of a row or after "->"
+        # are skill references; flag any that are not real skill folders.
+        for name in set(re.findall(r"(?:^\| |-> |\*\*Path:\*\* )`([a-z0-9]+(?:-[a-z0-9]+)+)`", text, re.M)):
+            if name not in known:
+                problems.append(f"ai-brain references unknown skill `{name}`")
+    return problems
+
+
 def scan_repo():
     problems = []
     for dirpath, dirnames, filenames in os.walk(ROOT):
@@ -111,6 +147,7 @@ def main():
     problems = []
     for folder in folders:
         problems += check_skill(folder)
+    problems += check_brain_coverage([os.path.basename(f) for f in folders])
     problems += scan_repo()
     print(f"Checked {len(folders)} skills.")
     if problems:

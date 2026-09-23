@@ -8,12 +8,16 @@ It also covers what happens after discovery. A delivery loop for TPMs and PMs wh
 
 ## What's inside
 
-- `skills/` — thirty-seven skills (listed below): twenty-three for discovery and fourteen for delivery, each with a `SKILL.md` and a vendor-neutral `agents/agent.yaml` interface descriptor.
+- `skills/` — thirty-eight skills (listed below): the `ai-brain` front door, twenty-three for discovery, and fourteen for delivery, each with a `SKILL.md` and a vendor-neutral `agents/agent.yaml` interface descriptor.
 - `templates/` — fill-in templates for source cards, taxonomy, evidence, painpoint validation, opportunity briefs, and prototype contracts, plus program charters, dependency maps, risk registers, stakeholder maps, communication plans, decision logs, status reports, tradeoff briefs, metric trees, launch-readiness checklists, and retrospectives.
 - `scripts/` — standard-library Python helpers: critical-path analysis, risk-register scoring, a status-report drafter, and a static validator for the skills themselves.
 - `examples/` — a synthetic DemoDesk program to run the scripts against.
 - `validation-plan.md` — how to test the skills against synthetic fixtures before you rely on them.
 - `publication-manifest.md` — the public-safety policy and the review record for this repo.
+
+## Start here: ask the AI Brain
+
+Not sure where to begin? Use `ai-brain`. Ask it things like *"What can this repo help me do?"*, *"How do I build a product brief?"*, *"We committed to this feature, now what?"*, or *"Is there a template for a risk register?"* It asks at most two questions, recommends the shortest path through the skills, names the template each step fills, and then walks you through the work to a finished deliverable. Its catalog of every skill, template, and script lives in `skills/ai-brain/references/`.
 
 ## The 5-stage operating loop
 
@@ -85,7 +89,7 @@ Safety:
 
 ## Choosing a skill
 
-If you're building the whole loop, start with the 5-stage operating loop above — `pm-sense` through `pm-commit` — and let each stage route you into the detailed skill it needs. If you just need one piece: run discovery first (`source-intake` through `opportunity-refinement`, with `generic-claim-falsification` as a gate before you commit to a direction), then branch into whichever extended workflow matches the output you need — a prototype, an AI assistant plan, a competitive study, a verified knowledge base, an assistant regression test, a how-to video, or a documentation audit. Once a bet is committed, move to the delivery loop — `tpm-frame` through `tpm-land`. If you only need one delivery piece, reach for it directly: `risk-register` for a risk review, `tradeoff-decision-brief` when a plan breaks, `program-recovery` for a troubled program, `launch-readiness-review` before a ship decision. Each `SKILL.md` names the other skills it expects to run before or after it.
+If you'd rather be guided, ask `ai-brain`. If you're building the whole loop, start with the 5-stage operating loop above — `pm-sense` through `pm-commit` — and let each stage route you into the detailed skill it needs. If you just need one piece: run discovery first (`source-intake` through `opportunity-refinement`, with `generic-claim-falsification` as a gate before you commit to a direction), then branch into whichever extended workflow matches the output you need — a prototype, an AI assistant plan, a competitive study, a verified knowledge base, an assistant regression test, a how-to video, or a documentation audit. Once a bet is committed, move to the delivery loop — `tpm-frame` through `tpm-land`. If you only need one delivery piece, reach for it directly: `risk-register` for a risk review, `tradeoff-decision-brief` when a plan breaks, `program-recovery` for a troubled program, `launch-readiness-review` before a ship decision. Each `SKILL.md` names the other skills it expects to run before or after it.
 
 ## Evidence discipline
 

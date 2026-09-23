@@ -1,0 +1,4 @@
+interface:
+  display_name: "AI Brain"
+  short_description: "Find the right skill path and drive it to a deliverable"
+  default_prompt: "Use $ai-brain to tell me what this repo can help me do, or how to build the deliverable I need, then walk me through the right skills and templates to finish it."
