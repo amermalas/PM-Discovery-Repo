@@ -13,6 +13,8 @@ This repo holds thirty-seven working skills, eighteen templates, and four script
 
 This skill answers those questions conversationally, then does the work by handing off to the right skills in the right order. It is a guide and a driver, not a replacement for the detailed skills.
 
+The repo's operating posture in one line: build to learn, document to govern, and ground every recommendation in evidence. Prototypes are for testing an idea, not for shipping; briefs, charters, and studies are what actually govern a decision. Keep that distinction visible whenever you hand something off.
+
 ## Lookup files
 
 - `references/skill-catalog.md`: every skill, grouped by loop and stage, with when to use it, what it needs, what it produces, and what comes next. It also lists **every template** (what it is for, which skill fills it, which deliverable it produces) and **every script**.
@@ -94,6 +96,8 @@ When driving a chain, return at each checkpoint:
 - the step just completed and its artifact
 - the review-gate result
 - the next step and any decision needed from the user
+
+When a chain reaches its final deliverable, include an evidence-standard note that separates first-hand proof, governed lineage artifacts, and context-only sources, per the evidence rules in the README — not just at the checkpoint level, on the finished artifact itself.
 
 ## Hard Boundaries
 
