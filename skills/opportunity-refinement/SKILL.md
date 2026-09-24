@@ -40,10 +40,11 @@ Where the unit is already correct, say so and move on. This is a check, not a ma
 3. Run the unit-of-analysis interrogation and record the result.
 4. Define target users and workflow moments.
 5. Write detailed jobs to be done.
-5. Define MVP behaviors.
-6. Define guardrails and non-goals.
-7. Capture assumptions, risks, and open questions.
-8. Create a handoff package for design, engineering, and prototype planning.
+6. For each job, run an existing-capability check: does a verified task card already cover it (see `task-card-knowledge-builder`, if you maintain a verified card corpus), or is this a genuine gap? A job that's already a documented, verified capability is an improve/enable opportunity, not a build-from-zero one — say which applies before scoping MVP behaviors around it.
+7. Define MVP behaviors.
+8. Define guardrails and non-goals.
+9. Capture assumptions, risks, and open questions.
+10. Create a handoff package for design, engineering, and prototype planning.
 
 ## Output Contract
 
@@ -56,7 +57,7 @@ Return:
 - worked case where every recorded unit succeeds and the user still fails, or a statement that none was found
 - prerequisite that must exist before the larger unit is expressible
 - target users
-- JTBD sections
+- JTBD sections, each paired with an existing-capability check (already covered by a verified task card and treated as improve/enable, or not yet documented and treated as a build gap)
 - supporting evidence ids under each JTBD section
 - MVP behavior list
 - guardrails
@@ -73,6 +74,7 @@ Return:
 
 - Do not reopen broad opportunity discovery.
 - Do not invent evidence.
+- Do not treat a job as a build-from-zero opportunity without checking whether it's already a documented, verified capability. If you haven't checked, say the existing-capability check hasn't been run rather than assuming it's a gap.
 - Do not blur MVP with later-phase ambition.
 - Do not reframe the unit of analysis without a worked case showing the current unit hides a real failure.
 - Do not imply prototype or handoff notes are production requirements.
